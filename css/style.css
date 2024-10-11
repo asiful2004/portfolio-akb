@@ -1081,3 +1081,16 @@ body.dark .shadow-dark {
   width: 100px; /* Adjust size as needed */
   height: auto;
 }
+
+/* text animation typing */
+.typewriter h1 {
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink-caret 0.5s step-end infinite;
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}

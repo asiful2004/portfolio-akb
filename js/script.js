@@ -134,3 +134,34 @@ window.addEventListener('load', function() {
     preloader.style.visibility = 'hidden';
     preloader.style.transition = 'visibility 0s 1s, opacity 1s linear'; // Optional: smooth fade-out
 });
+
+// text animation for typing text
+
+const text = "Akib Hasan";
+let index = 0;
+const speed = 100; // Typing speed
+const delayAfterFinish = 1000; // Delay after full text is typed before clearing
+
+function type() {
+    if (index < text.length) {
+        document.getElementById("type-text").innerHTML += text.charAt(index);
+        index++;
+        setTimeout(type, speed);
+    } else {
+        setTimeout(clearText, delayAfterFinish); // Wait before clearing text
+    }
+}
+
+function clearText() {
+    if (index > 0) {
+        document.getElementById("type-text").innerHTML = text.substring(0, index - 1);
+        index--;
+        setTimeout(clearText, speed / 2); // Clearing speed is faster
+    } else {
+        setTimeout(type, delayAfterFinish); // Start typing again
+    }
+}
+
+window.onload = function() {
+    type(); // Start the typing animation when the page loads
+};

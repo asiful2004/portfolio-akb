@@ -165,3 +165,16 @@ function clearText() {
 window.onload = function() {
     type(); // Start the typing animation when the page loads
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    const progressBars = document.querySelectorAll(".progress-in");
+
+    progressBars.forEach((bar, index) => {
+        const percentage = bar.getAttribute("data-percentage");
+
+        // Add a small delay for each progress bar to animate one after another smoothly
+        setTimeout(() => {
+            bar.style.width = percentage + '%';
+        }, index * 500);  // Adjust delay as needed; 500ms between each bar
+    });
+});

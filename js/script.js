@@ -166,15 +166,29 @@ window.onload = function() {
     type(); // Start the typing animation when the page loads
 };
 
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const progressBars = document.querySelectorAll(".progress-in");
 
     progressBars.forEach((bar, index) => {
         const percentage = bar.getAttribute("data-percentage");
+        const percentText = bar.nextElementSibling;  // Selects the skill-percent div
+
+        let currentPercentage = 0;  // Start from 0%
 
         // Add a small delay for each progress bar to animate one after another smoothly
         setTimeout(() => {
-            bar.style.width = percentage + '%';
+            const interval = setInterval(() => {
+                currentPercentage++;
+                bar.style.width = currentPercentage + '%';
+                percentText.innerText = currentPercentage + '%';
+
+                // Stop the animation when the target percentage is reached
+                if (currentPercentage >= percentage) {
+                    clearInterval(interval);
+                }
+            }, 30);  // Speed of the percentage increment (adjust as needed)
         }, index * 500);  // Adjust delay as needed; 500ms between each bar
     });
 });

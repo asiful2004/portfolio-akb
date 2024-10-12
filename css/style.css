@@ -1095,42 +1095,30 @@ body.dark .shadow-dark {
   50% { border-color: white; }
 }
 
-.skills {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.skill-item {
-  margin-bottom: 20px;
-}
-
-h5 {
-  margin-bottom: 5px;
-  font-size: 18px;
-  color: #fff;
-}
-
 .progress {
   position: relative;
   width: 100%;
   background: #e0e0e0;
   border-radius: 25px;
   height: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .progress-in {
   height: 100%;
   background-color: #3498db;
-  width: 0;  /* Start at 0 to enable animation */
+  width: 0;  /* Starts at 0% */
   border-radius: 25px;
-  transition: width 3s ease-in-out;  /* Smooth transition for each bar */
+  transition: width 3s ease-in-out;  /* Smooth animation */
 }
 
 .skill-percent {
   position: absolute;
   right: 10px;
-  top: -20px;
+  top: -20px;  /* Slightly adjusts the vertical positioning to align with the progress bar */
   font-size: 14px;
   color: #fff;
+  font-weight: bold;
+  z-index: 10; /* Ensures it's on top of other elements */
 }
+
